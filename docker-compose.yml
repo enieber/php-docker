@@ -1,13 +1,15 @@
-nginx:
+version: "2"
+services:
+  nginx:
     build: ./nginx/
     ports:
-        - 80:80
+        - 8888:80
     links:
         - php
     volumes_from:
         - app
 
-php:
+  php:
     build: ./php/
     expose:
         - 9000
@@ -16,33 +18,34 @@ php:
     volumes_from:
         - app
 
-app:
-    image: php:7.0-fpm
+  app:
+    build: ./php/
     volumes:
         - .:/var/www/html
     command: "true"
 
-mysql:
-    image: mysql:latest
+  mysql:
+    build: ./mysql/
     volumes_from:
         - data
     environment:
-        MYSQL_ROOT_PASSWORD: secret
+        MYSQL_ROOT_PASSWORD: project
         MYSQL_DATABASE: project
         MYSQL_USER: project
         MYSQL_PASSWORD: project
 
-data:
-    image: mysql:latest
+  data:
+    build: ./mysql/
     volumes:
         - /var/lib/mysql
     command: "true"
 
-phpmyadmin:
+  phpmyadmin:
     image: phpmyadmin/phpmyadmin
     ports:
         - 8080:80
     links:
-        - mysql
+        - mysql:db
     environment:
-        PMA_HOST: mysql
+      MYSQL_USER: project
+      MYSQL_ROOT_PASSWORD: project

@@ -1,0 +1,16 @@
+{
+  "name": "phpmt/pseudo-orm",
+  "authors": [],
+  "require": {
+    "niktux/addendum": "^0.4.4",
+    "phpunit/phpunit": "^4.8"
+  },
+  "autoload": {
+    "psr-4": {
+      "PseudoORM\\": [
+        "src/",
+        "test/"
+      ]
+    }
+  }
+}
