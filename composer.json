@@ -3,7 +3,8 @@
   "authors": [],
   "require": {
     "niktux/addendum": "^0.4.4",
-    "phpunit/phpunit": "^4.8"
+    "phpunit/phpunit": "^4.8",
+    "slim/slim": "2.4.3"
   },
   "autoload": {
     "psr-4": {

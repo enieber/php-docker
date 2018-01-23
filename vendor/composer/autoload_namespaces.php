@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Tests\\Addendum' => array($vendorDir . '/niktux/addendum'),
+    'Slim' => array($vendorDir . '/slim/slim'),
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
     'Addendum' => array($vendorDir . '/niktux/addendum/lib'),
 );
